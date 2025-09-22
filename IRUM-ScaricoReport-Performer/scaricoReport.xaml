@@ -1,0 +1,1422 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="scaricoReport" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ReportName" Type="InArgument(x:String)" />
+    <x:Property Name="in_ReportTag" Type="InArgument(x:String)" />
+    <x:Property Name="in_ReportPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_ReportFileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_DataInput" Type="InArgument(x:String)" />
+    <x:Property Name="in_ReportType" Type="InArgument(x:String)" />
+    <x:Property Name="in_DataInizio" Type="InArgument(x:String)" />
+    <x:Property Name="in_DataFine" Type="InArgument(x:String)" />
+    <x:Property Name="in_sftpPort" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_sftpHost" Type="InArgument(x:String)" />
+    <x:Property Name="out_ErroreScaricoReport" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1793.3333333333333,15174.666666666666</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.FTP.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>IRUM-ScaricoReport-Performer.Core</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="scaricoReport" sap:VirtualizedContainerService.HintSize="1332.6666666666667,15110" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="dataInizio" />
+      <Variable x:TypeArguments="x:String" Name="dataFine" />
+      <Variable x:TypeArguments="x:String" Name="sftpUser" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sftpPassword" />
+      <Variable x:TypeArguments="x:String" Name="oraCorrente" />
+      <Variable x:TypeArguments="x:Int32" Name="intOraCorrente" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Ore" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1270.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_19">
+      <ui:LogMessage.Level>
+        <InArgument x:TypeArguments="ui:LogLevel">
+          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Level>
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">"inizio scarico dei report"</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="IRUM-SftpCredential" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="1270.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1">
+      <ui:GetRobotCredential.Password>
+        <OutArgument x:TypeArguments="ss:SecureString">
+          <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">sftpPassword</CSharpReference>
+        </OutArgument>
+      </ui:GetRobotCredential.Password>
+      <ui:GetRobotCredential.Username>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">sftpUser</CSharpReference>
+        </OutArgument>
+      </ui:GetRobotCredential.Username>
+    </ui:GetRobotCredential>
+    <Assign sap:VirtualizedContainerService.HintSize="1270.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">out_ErroreScaricoReport</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: CRM Analytics | Salesforce" sap:VirtualizedContainerService.HintSize="1270.6666666666667,14504.666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1236.6666666666667,14285.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:CommentOut DisplayName="check app senza report" sap:VirtualizedContainerService.HintSize="1174.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1016,439.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check App State 'La tua'" sap:VirtualizedContainerService.HintSize="954,328.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,107.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,107.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/application/00l06000001AjmBAAS/edit" DesignTimeRectangle="598, 447, 725, 36" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'La tua'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='DIV' class='css-xi1jbf' aaname='La tua ultima ricerca è stata annullata e tutti i filtri sono stati reimpostati. Sei pronto per iniziare da zero la tua prossima ricerca.' check:innerText='La tua ultima ricerca è stata annullata e tutti i filtri sono stati reimpostati. Sei pronto per' /&gt;" Guid="c1410d5a-45f8-4164-b8e6-cd103a59b6cb" ImageBase64="" InformativeScreenshot="35f1714bd6282b5e880124762ed0d2c4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NCheckState DisplayName="Check App State 'Titolo↑'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,742" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Affidamenti (NLAV)'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/application/00l06000001AjmBAAS/edit" DesignTimeRectangle="156, 505, 110, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Affidamenti (NLAV)'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='P' /&gt;" Guid="f535f3c0-1906-4181-9dd8-9233de17cc2c" ImageBase64="" InformativeScreenshot="34c281f239854e20b984da7056661b49.png" ScopeSelectorArgument="&lt;html app='chrome.exe' omit:title='CRM Analytics | Salesforce' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.CvTextArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">in_ReportName</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.CvTextArgument>
+                        <uix:TargetAnchorable.FuzzySelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='app-name text-truncate' aaname='"+in_ReportName+"' /&gt;"</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.FuzzySelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">"pagina report analytics non apparsa"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_8">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">new SystemException("pagina report analytics non apparsa")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">out_ErroreScaricoReport</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">pagina report analytics non apparsa</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/application/00l06000001AjmBAAS/edit" DesignTimeRectangle="120, 471, 36, 17" DesignTimeScaleFactor="1" FriendlyName="'Titolo↑'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Titolo' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Titolo' type='' tag='SPAN' class='' check:innerText='Titolo' /&gt;" Guid="c349979f-90a1-4bb1-8973-ac79a14239fe" ImageBase64="" InformativeScreenshot="092bc22eb97ddefc49bd2958acc43ecb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' omit:title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NCheckState DisplayName="Check App State 'Reimposta'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,496.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Reimposta'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="383, 151, 32, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Reimposta'" FullSelectorArgument="&lt;webctrl aaname='Reimposta' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Reimposta' tag='BUTTON' type='button' class='slds-button slds-button_icon-border-filled reset-button css-zm856z' check:innerText='Reimposta' /&gt;" Guid="3aa249b5-357c-458b-84b9-1e802db5cdea" ImageBase64="" InformativeScreenshot="c439c375eb1d886639a2c486f40c0a1e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,263.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"icona filtro non apparsa"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="383, 151, 32, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Reimposta'" FullSelectorArgument="&lt;webctrl aaname='Reimposta' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Reimposta' tag='BUTTON' type='button' class='slds-button slds-button_icon-border-filled reset-button css-zm856z' check:innerText='Reimposta' /&gt;" Guid="d7ea6dd1-8a8b-4eb1-adc4-148e3ac4803d" ImageBase64="" InformativeScreenshot="cd45825f22c4d80d222c3a294378db2d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' omit:title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1174.6666666666667,500" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+              <TryCatch.Try>
+                <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll 'RegioneTuttiModifica vo…'" sap:VirtualizedContainerService.HintSize="334,260.6666666666667" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                  <uix:NMouseScroll.SearchedElement>
+                    <uix:SearchedElement>
+                      <uix:SearchedElement.Target>
+                        <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I09WAE" DesignTimeRectangle="53, 969, 233, 23" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Data ultima modifica'" FullSelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' type='' check:innerText='Data ultima modifica' /&gt;" Guid="d72c458e-8b27-431b-8629-fa03dec30a9d" InformativeScreenshot="cc511692f835b1a7c2f8a91ab9549d21.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="41, 960, 293, 65" ElementType="Button" FriendlyName="'Data ultima'" FullSelectorArgument="&lt;webctrl aria-label='Data ultima modifica Tutti' aria-role='button' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Data ultima modifica Tutti' aria-role='button' tag='DIV' type='' class='filter-item filter-item-0 is-view-mode' aaname='' check:innerText='Data ultima modifica&amp;#xD;&amp;#xA;Tutti&amp;#xD;&amp;#xA;Modifica voce filtro' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:SearchedElement.Target>
+                      <uix:SearchedElement.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:SearchedElement.Timeout>
+                    </uix:SearchedElement>
+                  </uix:NMouseScroll.SearchedElement>
+                  <uix:NMouseScroll.Target>
+                    <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I09WAE" DesignTimeRectangle="38, 405, 299, 66" DesignTimeScaleFactor="1.5" FriendlyName="'RegioneTuttiModifica vo…'" FullSelectorArgument="&lt;webctrl aria-label='Questo è il widget Filtro globale' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Questo è il widget Filtro globale' tag='DIV' type='' class='filter-panel-widget css-11dixag widgetReady finalState' aaname='' check:innerText='Regione&amp;#xD;&amp;#xA;Tutti&amp;#xD;&amp;#xA;Modifica voce filtro' /&gt;" Guid="7026cf4f-d210-431e-b2e1-8001244be208" ImageBase64="" InformativeScreenshot="a8cf697346e810c54e722d0729d277ab.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                  </uix:NMouseScroll.Target>
+                </uix:NMouseScroll>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Throw sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_7">
+                      <InArgument x:TypeArguments="s:Exception">
+                        <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_119">new SystemException("data ultima modifica non trovata")</CSharpValue>
+                      </InArgument>
+                    </Throw>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <uix:NCheckState DisplayName="Check App State 'Data ultima modifica'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,616.6666666666666" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Data ultima modifica'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="36, 953, 262, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Data ultima modifica'" FullSelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' type='' check:innerText='Data ultima modifica' /&gt;" Guid="30b163ac-30ea-4891-baae-22d0d1fac060" ImageBase64="" InformativeScreenshot="f002cd5c3b3ffcdca243250004a34742.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,395.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">"click su data ultima modifica non effettuato"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Throw_6">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_120">new SystemException("data ultima modifica non trovata")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="36, 953, 262, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Data ultima modifica'" FullSelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data ultima modifica' class='filter-field' tag='DIV' type='' check:innerText='Data ultima modifica' /&gt;" Guid="dac3bdfa-7399-47de-8272-1df368f16161" ImageBase64="" InformativeScreenshot="1e69aac2eddd7ec4acbc25b677250a75.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NCheckState DisplayName="Check App State 'Personalizzato'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,742" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Personalizzato'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="65, 654, 100, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Personalizzato'" FullSelectorArgument="&lt;webctrl aaname='Personalizzato' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Personalizzato' tag='SPAN' type='' class='slds-truncate slds-p-left_large picklistLabel' check:innerText='Personalizzato' /&gt;" Guid="f3dccbd8-7aef-4353-9ba8-932a91769e03" ImageBase64="" InformativeScreenshot="ccf413d31fa4576611efcb9b3cc49364.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_132">"filtro personalizzato non trovato"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_5">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_133">new SystemException("filtro personalizzato non trovato")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">out_ErroreScaricoReport</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">personalizzato non trovato</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="65, 654, 100, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Personalizzato'" FullSelectorArgument="&lt;webctrl aaname='Personalizzato' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Personalizzato' tag='SPAN' type='' class='slds-truncate slds-p-left_large picklistLabel' check:innerText='Personalizzato' /&gt;" Guid="1e794c50-81bc-4f4d-ba6a-9eada6be78fb" ImageBase64="" InformativeScreenshot="4fb96cdc85a98bd4e45404e5f6446954.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NCheckState DisplayName="Check App State 'Tra'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,1022" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,800.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Da'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="49, 774, 146, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'04/03/2019'" FullSelectorArgument="&lt;webctrl aaname='Da' class='slds-input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Da' class='slds-input' tag='INPUT' type='text' /&gt;" Guid="dfcdd2e9-6cd4-45e3-aee0-2a522bfa51c3" ImageBase64="" InformativeScreenshot="86b322695c2b6a6c8dd44893f01670b0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="49, 756, 23, 16" ElementType="Text" FriendlyName="'Da'" FullSelectorArgument="&lt;webctrl class='slds-form-element__label' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl class='slds-form-element__label' tag='LABEL' type='' aaname='Da' check:innerText='Da' /&gt;" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">in_DataInizio</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '17/06/2025'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="211, 774, 146, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'17/06/2025'" FullSelectorArgument="&lt;webctrl aaname='A' class='slds-input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='A' class='slds-input' tag='INPUT' type='text' /&gt;" Guid="9e6462fc-432a-49aa-8342-ee9874f00b5c" ImageBase64="" InformativeScreenshot="2a5306c15c96615a8c23df703828f187.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">in_DataFine</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Applica'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="288, 848, 73, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Applica'" FullSelectorArgument="&lt;webctrl aaname='Applica' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Applica' tag='BUTTON' type='button' class='slds-button slds-button_brand filter-apply slds-m-top_x-small' check:innerText='Applica' /&gt;" Guid="5c280942-ae60-4e1f-b623-d3410e4831db" ImageBase64="" InformativeScreenshot="d110ee8a3af9478ae70b7b7efdedd848.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">"filtro data 'tra' non trovato"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_3">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">new SystemException("filtro data 'tra' non trovato")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">out_ErroreScaricoReport</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">filtro data 'tra' non trovato</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="49, 704, 308, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Tra'" FullSelectorArgument="&lt;webctrl aria-role='textbox' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='textbox' tag='INPUT' type='text' class='slds-input slds-combobox__input' aaname='' /&gt;" Guid="a6e5a0b3-0725-4601-a1d5-d8582b5d6abf" ImageBase64="" InformativeScreenshot="50cfa3cad3b808879708b3a311c3b51a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NCheckState DisplayName="Check App State 'Ora -'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,896" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,674.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ora -'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="36, 934, 286, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Ora -'" FullSelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' type='' aaname='Ora - Data Ultima Modifica' check:innerText='Ora - Data Ultima Modifica' /&gt;" Guid="a9a76cbc-a029-4445-b29c-e1f0d86d829d" ImageBase64="" InformativeScreenshot="4880b616ca2ffed279da43f8e2eda31b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll '00120001601021402031803…'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="15" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NMouseScroll.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000HaLWAU" DesignTimeRectangle="41, 566, 324, 200" DesignTimeScaleFactor="1" FriendlyName="'00120001601021402031803…'" FullSelectorArgument="&lt;webctrl class='rows' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='rows' tag='DIV' type='' aaname='' check:innerText='00&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;00&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;6&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;18&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;22&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;11' /&gt;" Guid="c443876f-4602-4618-a387-c224ea3de473" InformativeScreenshot="4d32228ba57762694ba53717fe5b1a0a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NMouseScroll.Target>
+                  </uix:NMouseScroll>
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='ore' ReferenceName='Column0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="388,160" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NExtractData.DataTable>
+                      <InOutArgument x:TypeArguments="sd:DataTable">
+                        <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">dt_Ore</CSharpReference>
+                      </InOutArgument>
+                    </uix:NExtractData.DataTable>
+                    <uix:NExtractData.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="41, 707, 324, 200" DesignTimeScaleFactor="1" FriendlyName="'0514,753050616,27406072…'" FullSelectorArgument="&lt;webctrl class='rows' tag='DIV' /&gt;" Guid="0b63333f-5171-40cb-ac51-9eecdc23bc3c" InformativeScreenshot="fd045564a8e77678e3b62534c86f632b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NExtractData.Target>
+                  </uix:NExtractData>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_15">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">"filtro ora non apparso"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_4">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">new SystemException("filtro ora non apparso")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">out_ErroreScaricoReport</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">"filtro ora non apparso"</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000HaLWAU" DesignTimeRectangle="36, 793, 288, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Ora -'" FullSelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' type='' aaname='Ora - Data Ultima Modifica' check:innerText='Ora - Data Ultima Modifica' /&gt;" Guid="c5014e3c-519d-46ea-aecc-b11f7cb07e28" InformativeScreenshot="673824366eda4c09dc97021db317bb54.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1174.6666666666667,7746.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1140.6666666666667,7556.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="nomeFileXlsx" />
+                      <Variable x:TypeArguments="x:String" Name="nomeFileCSV" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="1098.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">oraCorrente</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">CurrentRow["ore"].ToString().Trim()</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="1098.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">
+                          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">intOraCorrente</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">
+                          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_96">int.Parse(oraCorrente)</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1098.6666666666667,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_16">
+                      <ui:LogMessage.Level>
+                        <InArgument x:TypeArguments="ui:LogLevel">
+                          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_90">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Level>
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">"ora corrente: " + oraCorrente</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                    <If sap:VirtualizedContainerService.HintSize="1098.6666666666667,430.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">intOraCorrente &gt;=50</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,246.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll '00120001601021402031803…'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NMouseScroll_4" InteractionMode="HardwareEvents" MovementUnits="15" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                            <uix:NMouseScroll.Target>
+                              <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000HaLWAU" DesignTimeRectangle="41, 566, 324, 200" DesignTimeScaleFactor="1" FriendlyName="'00120001601021402031803…'" FullSelectorArgument="&lt;webctrl class='rows' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='rows' tag='DIV' type='' aaname='' check:innerText='00&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;00&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;6&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;18&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;22&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;11' /&gt;" Guid="c443876f-4602-4618-a387-c224ea3de473" InformativeScreenshot="4d32228ba57762694ba53717fe5b1a0a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NMouseScroll.Target>
+                          </uix:NMouseScroll>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1098.6666666666667,336" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch.Try>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '05'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="61, 727, 16, 16" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FuzzySelectorArgument="&lt;webctrl aria-label='05' tag='INPUT' type='checkbox' class='style-guide input-checkbox row-input' aaname='' /&gt;" Guid="d8fae2b8-7dc7-4196-9a14-40e40d2ffbea" InformativeScreenshot="2442f2c8479d40892ad1a6f8081bde78.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="85, 723, 194, 21" ElementType="Text" FriendlyName="'05'" FullSelectorArgument="&lt;webctrl aaname='05' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='05' tag='DIV' type='' class='content string' check:innerText='05' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                              <uix:TargetAnchorable.FullSelectorArgument>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">string.Format("&lt;webctrl aria-label='{0}' tag='INPUT' type='checkbox' /&gt;", oraCorrente)</CSharpValue>
+                                </InArgument>
+                              </uix:TargetAnchorable.FullSelectorArgument>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,162.66666666666666" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Throw sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_9">
+                              <InArgument x:TypeArguments="s:Exception">
+                                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">new SystemException("filtro ora non cliccata")</CSharpValue>
+                              </InArgument>
+                            </Throw>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ora -'" sap:VirtualizedContainerService.HintSize="1098.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="36, 934, 286, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Ora -'" FullSelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' type='' aaname='Ora - Data Ultima Modifica' check:innerText='Ora - Data Ultima Modifica' /&gt;" Guid="a9a76cbc-a029-4445-b29c-e1f0d86d829d" ImageBase64="" InformativeScreenshot="4880b616ca2ffed279da43f8e2eda31b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="False" DisplayName="Click 'Icona menu'" sap:VirtualizedContainerService.HintSize="1098.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1821, -222, 20, 20" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Icona menu'" FullSelectorArgument="&lt;webctrl aaname='Icona menu a discesa per aprire le azioni globali' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Icona menu a discesa per aprire le azioni globali' tag='BUTTON' type='button' class='slds-button slds-button_icon slds-global-actions__item-action' check:innerText='Icona menu a discesa per aprire le azioni globali' /&gt;" Guid="f8625cee-d95c-4f80-b100-2ebf33395531" ImageBase64="" InformativeScreenshot="0f3e4fce3da69dfec5b9c7221ddbaaa3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Scarica'" sap:VirtualizedContainerService.HintSize="1098.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1782, 382, 61, 19" DesignTimeScaleFactor="1" FriendlyName="'Scarica'" FullSelectorArgument="&lt;webctrl aaname='Scarica' class='slds-truncate' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Scarica' class='slds-truncate' tag='SPAN' type='' check:innerText='Scarica' /&gt;" Guid="5d5917e9-b19e-466e-918d-e538d74d56a8" ImageBase64="" InformativeScreenshot="3e174f2c19c882668a5c60c7253df33f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <ui:CommentOut DisplayName="Scarica in formato xlsx" sap:VirtualizedContainerService.HintSize="1098.6666666666667,244.66666666666666" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NCheckState DisplayName="Check App State 'Scarica in formato Excel'" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="NCheckState_11" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Timeout="15" Version="V3">
+                            <uix:NCheckState.IfExists>
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,462.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Scarica in formato Excel'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1032, 589, 159, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Scarica in formato Excel'" FullSelectorArgument="&lt;webctrl aaname='Scarica in formato Excel' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Scarica in formato Excel' tag='BUTTON' type='button' class='slds-button excel-button' check:innerText='Scarica in formato Excel' /&gt;" Guid="3a758ad1-fa9e-4b2b-b90f-e450ba6f3784" ImageBase64="" InformativeScreenshot="b3b7f5d37bc72e88361254ac17f1c85c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_14">
+                                  <ui:LogMessage.Level>
+                                    <InArgument x:TypeArguments="ui:LogLevel">
+                                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                                    </InArgument>
+                                  </ui:LogMessage.Level>
+                                  <ui:LogMessage.Message>
+                                    <InArgument x:TypeArguments="x:Object">
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_92">"scaricando il report " + in_ReportName+ " alla ora " + oraCorrente</CSharpValue>
+                                    </InArgument>
+                                  </ui:LogMessage.Message>
+                                </ui:LogMessage>
+                              </Sequence>
+                            </uix:NCheckState.IfExists>
+                            <uix:NCheckState.IfNotExists>
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8">
+                                  <ui:LogMessage.Level>
+                                    <InArgument x:TypeArguments="ui:LogLevel">
+                                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                                    </InArgument>
+                                  </ui:LogMessage.Level>
+                                  <ui:LogMessage.Message>
+                                    <InArgument x:TypeArguments="x:Object">
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_104">"scarica in formato Excel non apparso"</CSharpValue>
+                                    </InArgument>
+                                  </ui:LogMessage.Message>
+                                </ui:LogMessage>
+                                <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_10">
+                                  <InArgument x:TypeArguments="s:Exception">
+                                    <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">new SystemException("scarica in formato Excel non apparso")</CSharpValue>
+                                  </InArgument>
+                                </Throw>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">out_ErroreScaricoReport</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_105">"scarica in formato Excel non apparso"</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </uix:NCheckState.IfNotExists>
+                            <uix:NCheckState.Target>
+                              <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1032, 589, 159, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Scarica in formato Excel'" FullSelectorArgument="&lt;webctrl aaname='Scarica in formato Excel' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Scarica in formato Excel' tag='BUTTON' type='button' class='slds-button excel-button' check:innerText='Scarica in formato Excel' /&gt;" Guid="12fcf31b-65b0-44e4-a0a0-0bceb3a38a14" ImageBase64="" InformativeScreenshot="d297681bf2c422d1c84d1a60111b9973.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NCheckState.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NCheckState>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                    </ui:CommentOut>
+                    <uix:NCheckState DisplayName="Check App State 'Scarica in formato CSV'" sap:VirtualizedContainerService.HintSize="1098.6666666666667,684" sap2010:WorkflowViewState.IdRef="NCheckState_13" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Timeout="15" Version="V3">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,462.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Scarica in formato CSV'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1032, 733, 152, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Scarica in formato CSV'" FullSelectorArgument="&lt;webctrl aaname='Scarica in formato CSV' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Scarica in formato CSV' tag='BUTTON' type='button' class='slds-button csv-button' check:innerText='Scarica in formato CSV' /&gt;" Guid="b9f0f65f-d1dd-4959-bd3c-42b7c5c84ba0" ImageBase64="" InformativeScreenshot="18f902763f12769d504d4abe991e74e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_17">
+                            <ui:LogMessage.Level>
+                              <InArgument x:TypeArguments="ui:LogLevel">
+                                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Level>
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">"scaricando il report " + in_ReportName+ " alla ora " + oraCorrente</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,388.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_18">
+                            <ui:LogMessage.Level>
+                              <InArgument x:TypeArguments="ui:LogLevel">
+                                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_112">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Level>
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">"scarica in formato CSV non apparso"</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_34">out_ErroreScaricoReport</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_136">"scarica in formato CSV non apparso"</CSharpValue>
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="1032, 733, 152, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Scarica in formato CSV'" FullSelectorArgument="&lt;webctrl aaname='Scarica in formato CSV' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Scarica in formato CSV' tag='BUTTON' type='button' class='slds-button csv-button' check:innerText='Scarica in formato CSV' /&gt;" Guid="6a8a71c6-b1b8-4733-9968-a507070a2444" ImageBase64="" InformativeScreenshot="c7a8644e20fc63fca8a9657fe089e287.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                    <uix:NCheckState DisplayName="Check App State 'File name'" sap:VirtualizedContainerService.HintSize="1098.6666666666667,1252.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Timeout="15" Version="V3">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="548.6666666666666,1031.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486.6666666666667,453.3333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,333.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Copy_of_Tratte_in_affid…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="HardwareEvents" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable DesignTimeRectangle="136, 429, 791, 17" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Copy_of_Tratte_in_affid…'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="824e24ee-a4e9-4703-ab4b-523b76957996" ImageBase64="" InformativeScreenshot="d8d3efd52e1014bc48443a3c584cbc1a.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.Text>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">@"D:\IRUM-scaricoReport\"+in_ReportType +@"\" + in_ReportFileName + "_"+ oraCorrente</CSharpValue>
+                                    </InArgument>
+                                  </uix:NTypeInto.Text>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Copy_of_Tratte_in_affid…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="HardwareEvents" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="136, 429, 791, 17" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Copy_of_Tratte_in_affid…'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="824e24ee-a4e9-4703-ab4b-523b76957996" ImageBase64="" InformativeScreenshot="d8d3efd52e1014bc48443a3c584cbc1a.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.Text>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">System.IO.Path.GetTempPath() + in_ReportFileName + "_"+ oraCorrente</CSharpValue>
+                              </InArgument>
+                            </uix:NTypeInto.Text>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="747, 494, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' check:text='unchecked' /&gt;" Guid="26a5385b-03c1-409d-a802-65d746061555" ImageBase64="" InformativeScreenshot="70782b54808c65367863a330dd488bb3.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7">
+                            <ui:LogMessage.Level>
+                              <InArgument x:TypeArguments="ui:LogLevel">
+                                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Level>
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"file name non apparso"</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                          <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_11">
+                            <InArgument x:TypeArguments="s:Exception">
+                              <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">new SystemException("file name non apparso")</CSharpValue>
+                            </InArgument>
+                          </Throw>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_29">out_ErroreScaricoReport</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">file name non apparso</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="18, 426, 115, 23" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'File name'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;ctrl name='Explorer Pane' role='pane' /&gt;&lt;ctrl name='Folder Layout Pane' role='pane' /&gt;&lt;ctrl name='Details Pane' role='pane' /&gt;&lt;ctrl name='File name:' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;ctrl name='Explorer Pane' role='pane' /&gt;&lt;ctrl name='Folder Layout Pane' role='pane' /&gt;&lt;ctrl name='Details Pane' role='pane' /&gt;&lt;ctrl name='File name:' role='text' automationid='' check:text='File name:' /&gt;" Guid="d760d62f-2417-405b-a793-03c3b6e8cc8d" ImageBase64="" InformativeScreenshot="ea8aefb7a50a23c666069442d6cb5a3f.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                    <Assign sap:VirtualizedContainerService.HintSize="1098.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_33">nomeFileXlsx</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_109">System.IO.Path.GetTempPath() + in_ReportFileName + "_"+ oraCorrente+".xlsx"</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="1098.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">nomeFileCSV</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">System.IO.Path.GetTempPath() + in_ReportFileName + "_"+ oraCorrente+".csv"</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <If sap:VirtualizedContainerService.HintSize="1098.6666666666667,1686.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_102">out_ErroreScaricoReport == ""</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,512" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12">
+                            <ui:LogMessage.Level>
+                              <InArgument x:TypeArguments="ui:LogLevel">
+                                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Level>
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">"nessun errore scarico report"</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="uploadFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="uploadFile.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpHost">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">in_sftpHost</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_sftpPort">
+                                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">in_sftpPort</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpUser">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">sftpUser</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sftpPassword">
+                                <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">sftpPassword</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpFolder">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">in_ReportPath</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_nomeFile">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">nomeFileCSV</CSharpValue>
+                              </InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_4">
+                            <ui:DeleteFileX.Path>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">nomeFileXlsx</CSharpValue>
+                              </InArgument>
+                            </ui:DeleteFileX.Path>
+                          </ui:DeleteFileX>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,990.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="tempFolder" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13">
+                            <ui:LogMessage.Level>
+                              <InArgument x:TypeArguments="ui:LogLevel">
+                                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Level>
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">"errore in scarico report scrittura log"</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">tempFolder</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">System.IO.Path.GetTempPath() + "LogsException" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")+".log"</CSharpValue>
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:CreateFile ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create File" sap:VirtualizedContainerService.HintSize="434,136.66666666666666" sap2010:WorkflowViewState.IdRef="CreateFile_1">
+                            <ui:CreateFile.Name>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_101">"RPA_LogsException_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")+".log"</CSharpValue>
+                              </InArgument>
+                            </ui:CreateFile.Name>
+                            <ui:CreateFile.Path>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">System.IO.Path.GetTempPath()</CSharpValue>
+                              </InArgument>
+                            </ui:CreateFile.Path>
+                          </ui:CreateFile>
+                          <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" sap:VirtualizedContainerService.HintSize="434,136.66666666666666" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
+                            <ui:WriteTextFile.FileName>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">tempFolder</CSharpValue>
+                              </InArgument>
+                            </ui:WriteTextFile.FileName>
+                            <ui:WriteTextFile.Text>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_103">"Impossibile scaricare il report: "+ out_ErroreScaricoReport</CSharpValue>
+                              </InArgument>
+                            </ui:WriteTextFile.Text>
+                          </ui:WriteTextFile>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="uploadFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="uploadFile.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpHost">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">in_sftpHost</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_sftpPort">
+                                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">in_sftpPort</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpUser">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">sftpUser</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sftpPassword">
+                                <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">sftpPassword</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_sftpFolder">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">in_ReportPath</CSharpValue>
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_nomeFile">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">tempFolder</CSharpValue>
+                              </InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_3">
+                            <ui:DeleteFileX.Path>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_70">tempFolder</CSharpValue>
+                              </InArgument>
+                            </ui:DeleteFileX.Path>
+                          </ui:DeleteFileX>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1098.6666666666667,398.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                      <TryCatch.Try>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ora -'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="36, 934, 286, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Ora -'" FullSelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' class='title' tag='DIV' type='' aaname='Ora - Data Ultima Modifica' check:innerText='Ora - Data Ultima Modifica' /&gt;" Guid="a9a76cbc-a029-4445-b29c-e1f0d86d829d" ImageBase64="" InformativeScreenshot="4880b616ca2ffed279da43f8e2eda31b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Throw sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_14">
+                              <InArgument x:TypeArguments="s:Exception">
+                                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_137">new SystemException("secondo click su filtro ora non effettuato")</CSharpValue>
+                              </InArgument>
+                            </Throw>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                    <If sap:VirtualizedContainerService.HintSize="1098.6666666666667,430.6666666666667" sap2010:WorkflowViewState.IdRef="If_5">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">intOraCorrente &gt;=50</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,246.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll '00120001601021402031803…'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NMouseScroll_5" InteractionMode="HardwareEvents" MovementUnits="15" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                            <uix:NMouseScroll.Target>
+                              <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000HaLWAU" DesignTimeRectangle="41, 566, 324, 200" DesignTimeScaleFactor="1" FriendlyName="'00120001601021402031803…'" FullSelectorArgument="&lt;webctrl class='rows' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='rows' tag='DIV' type='' aaname='' check:innerText='00&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;00&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;6&amp;#xD;&amp;#xA;01&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;02&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;18&amp;#xD;&amp;#xA;03&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;22&amp;#xD;&amp;#xA;04&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;05&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;06&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;07&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;14&amp;#xD;&amp;#xA;08&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;12&amp;#xD;&amp;#xA;09&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;8&amp;#xD;&amp;#xA;10&amp;#xD;&amp;#xA;11' /&gt;" Guid="c443876f-4602-4618-a387-c224ea3de473" InformativeScreenshot="4d32228ba57762694ba53717fe5b1a0a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NMouseScroll.Target>
+                          </uix:NMouseScroll>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_33" />
+                      </If.Else>
+                    </If>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1098.6666666666667,398.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch.Try>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '05'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I3NWAU" DesignTimeRectangle="61, 727, 16, 16" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FuzzySelectorArgument="&lt;webctrl aria-label='05' tag='INPUT' type='checkbox' class='style-guide input-checkbox row-input' aaname='' /&gt;" Guid="d8fae2b8-7dc7-4196-9a14-40e40d2ffbea" InformativeScreenshot="2442f2c8479d40892ad1a6f8081bde78.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="85, 723, 194, 21" ElementType="Text" FriendlyName="'05'" FullSelectorArgument="&lt;webctrl aaname='05' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='05' tag='DIV' type='' class='content string' check:innerText='05' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                              <uix:TargetAnchorable.FullSelectorArgument>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">string.Format("&lt;webctrl aria-label='{0}' tag='INPUT' type='checkbox' /&gt;", oraCorrente)</CSharpValue>
+                                </InArgument>
+                              </uix:TargetAnchorable.FullSelectorArgument>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Throw sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_12">
+                              <InArgument x:TypeArguments="s:Exception">
+                                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">new SystemException("secondo click su filtro ora non effettuato")</CSharpValue>
+                              </InArgument>
+                            </Throw>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+              <ui:ForEachRow.DataTable>
+                <InArgument x:TypeArguments="sd:DataTable">
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">dt_Ore</CSharpValue>
+                </InArgument>
+              </ui:ForEachRow.DataTable>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachRow>
+            <ui:Comment sap:VirtualizedContainerService.HintSize="1174.6666666666667,114.66666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// richiamo uploadFile&#xA;passare come parametro di input System.IO.Path.GetTempPath() + in_ReportFileName " />
+            <ui:Comment sap:VirtualizedContainerService.HintSize="1174.6666666666667,56.666666666666664" sap2010:WorkflowViewState.IdRef="Comment_2" Text="//  cancellare file in locale" />
+            <uix:NCheckState DisplayName="Check App State 'Tratte in'" sap:VirtualizedContainerService.HintSize="1174.6666666666667,742" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Tratte in'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="44d09e6c-8147-4531-a152-66295e1da0d9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I09WAE" DesignTimeRectangle="405, 107, 14, 14" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='svg' type='' class='slds-button__icon' aaname='' /&gt;" Guid="d0b33e7c-396d-4b06-9894-256742261405" InformativeScreenshot="59c9dc15659706a743aacac5909b77cd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="227, 107, 148, 16" ElementType="Text" FriendlyName="'Tratte in'" FullSelectorArgument="&lt;webctrl aaname='Tratte in Disalimentazione' tag='SPAN' /&gt;" SearchSteps="FuzzySelector">
+                              <uix:Target.FuzzySelectorArgument>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">"&lt;webctrl aaname='"+in_ReportName+"' tag='SPAN' type='' class='tab-name slds-truncate' check:innerText='"+in_ReportName+"' /&gt;"</CSharpValue>
+                                </InArgument>
+                              </uix:Target.FuzzySelectorArgument>
+                            </uix:Target>
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,520.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_10">
+                    <ui:LogMessage.Level>
+                      <InArgument x:TypeArguments="ui:LogLevel">
+                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Level>
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">"tab non chiusa"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <Throw sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_13">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">new SystemException("tab non chiusa")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">out_ErroreScaricoReport</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">tab non chiusa</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portalefibra.e-distribuzione.it/community/analyticscommunities/dashboard/0FKdV0000000I09WAE" DesignTimeRectangle="227, 107, 148, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Tratte in'" FullSelectorArgument="&lt;webctrl aaname='Tratte in Disalimentazione' tag='SPAN' /&gt;" Guid="3c77ee00-8eb5-4470-b8b1-1f50dba8ade8" InformativeScreenshot="4005def70a048ebcd94a286e28d1cd75.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.FuzzySelectorArgument>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">"&lt;webctrl aaname='"+in_ReportName+"' tag='SPAN' type='' class='tab-name slds-truncate' check:innerText='"+in_ReportName+"' /&gt;"</CSharpValue>
+                    </InArgument>
+                  </uix:TargetAnchorable.FuzzySelectorArgument>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAbxSURBVFhHpZZtTFvnFcf9pWuypg3tmjVrGmLeEoMBG2PaJBDb2CkvyQJpvlXtFqRpmrSXT5s67a3pl0nTptXkhdAklEsCbZdG3VsrVe3AhhBCs3ZDi5ZAo21OA5hAOztNmrXhXj9n//M8j415SUe7I/30P+fh+vzPufcasC03YgF3zkzQ0zITrDLAyPshb3ImVEXTQS/NBDn3RmeClcZ0qHIvX6s/9v/HVIPbfjVU1com2kxcra2k6VovqBQM14sIVBpTAbddt/nsoTb2htlUGgWUWcYQ9dWAR0wFOPcgV8r1VMCj8AOfZ59uufzgyWES00a6sUfm8ww0cTZiuPZViLi/Qp1xrohNbV7m3ZiurXChUSzbIIO/QjDKUBlpE4r73BmdhE5ucys4V/X/HoI3h1EsvYFSjTaa9Kmm8W3aSDXPMJGmxkWTNS4BBaoer3ZhCMfSQ/Azh1FMGWU1z5ipxnIA1hq3kDUbaENlJHMxLmul49XljFDqii35LZnwucMZE4XI3khvo41Uzg1lzc1l7aIrOGO0KV3ZupAycWVLWVjbqnC/tNve/h3/nAmboqk2I7mNNpn57jfoxss9ZMYnKR3i5rskZl4la2QXWecqGcGaYn3LQ5JzHpx5BM5kTcNZ70PlS3uMbUYzjYUq1Fb6dknFxDKvr6YbJ3u0JVE8Kah/bBaYdGkqpU8xzNSLZL3jJ/OtChgxbgzhxjDQYbeqoajVXXAbu3M8LzxGzL4fBjO3io1Z39tSRuN1W+nWpTFp8JeYSd8yPqKqZ65R1T4N8qbwdYqOzsprxM0xst6ugZmLDZUOc85aDi3HEOVJGsG74H5hd4u7ZzdVANb+Jq80ZfCsBOv133TLxkein5AXhhmezso1R3ENh4h3K7PhMk1pljJOMXumpMXm7m42ALm6m4S7p1k8+Ys6ury5lN7b7BTMxGP1siFvV/l0UuLROse1eefv4C5xpC7sFdZZJ5lnS8hagtRwiWFzdTdHXScwwIkmTTO9useLIZwUe8RJN177nWy289kPqeJnyTlglNF0rutvdt6QnxFTJ4R5thhm2TgwlINS0NRQ8Yit/HhTsvz4LkpT1rWLth9spL/7yij2cIm4dWmUxuIWudF8MYnbkKTJJF7MTyZguBGGmiEJMSZInS1K2MqMr8JUImSu659/u5piVcWCN4lcnCXXTxNLA7P5dYLKoRH9QlpDRWSeKSSLQW4NaZV1gbCVdu6kUpiWGjuF1C6lj7Q30vkap2zSd/EWlaHpQtgoW7PP+zA0h3WmAEb5wjoDhgowTD7O5uABks7OHUKxk6BAqvjeUz5hxidoMpGi0p/8+zMxiscmProAkzwyB/Ogdgxhl7XKN3CdsJU8v+OvJR2NpNhBqGXuZH2+UQz2n5SbtHRcJycaO38MWD+Ful9dk59JTZ+CGRvlCnMwlyzJBrBecG4Oro/aHB0NRvGxRpqjQQ7gONYgOP/6a0/JZn/+1yyVwLwYKP1A5nP13HkvHhmH9fYWMk+vBw/B9CHBqnOyWE+vM2yOow0tIGPIyPpovQCsdPy8+ioe6rtJjh99QA6YSF0Izg/1/kdee228E4brYLYO2z6I/EGYK6y0Dqzba7MbgZziI/XJTUfqKRsH69E6wXi79ojR9/8hG//pwi0K/jJJm2CYzdeOfUjn/qlevInEu5QYLCFz4CuatTBdK9JqnX5A5hTNUX+WNz1X37rpuTraqJH5kTqRroHwGntE1/nfSgOOi5OWHIaZwEuaDr6m849bsN1aGD+QwWLt/7JUa2CNsPrXGNKcw9HeYN/Y/igxRVrTeRaisH27CPQ8Sa+MvkEX9R3hGL9+lYy/vUJP/P4H5O/wwWiNYkBr//0ytwbuFzIH2H7+f0ZFbaHWosPbKU1hG+ujxKaFhyWkNCT4ZxldwKk/FMHkS8pU6n3YVipZyFlTA/ct/k/ZHg7kFBwOxQraVOOCQyEqBKx8JpXP2ubX2Tze9TDM7hVm9F4YAlaAM605wormxLTl4sAQ9oK2YCzdMP9gkApA/qGgkHCu66XOL7+JZxxdjQHuAathuBqGUNSa2KJbvzB4iPwDtTHZ9EAt5R2sFQznafJY8XNWmR8I0ve7y8mM3I1N71EKrOgqmK4SnM9G7ob5ik83TwcPkbe/NgbIfiAg8vYHpMochvb9Kk9T076VLr+B5xxZxabQu+ZhRe6Kfbxc8+zAIM/YW2F+W/wYxi86Xs4ns28ljL4oMSMrBNdmBPStDGe+758n+G7khv3GhrCfNrT6Re6zPsF5btgn6+q2zTBZobmTzF4QuTNp9q5s/fj1z7H17QKD5Kz/9bYWDNCFAaLQJKCTp/A7PXJHItX7hZFU7wpjtu+OluVvbLP9F5lmWAkTeM7rAAAAAElFTkSuQmCC" InformativeScreenshot="cff6cbc8b908ab1b41db3844dc9d35f6.jpg" Selector="&lt;html app='chrome.exe' title='CRM Analytics | Salesforce' /&gt;" Title="CRM Analytics | Salesforce" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
